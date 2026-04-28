@@ -161,7 +161,7 @@ onMounted(() => {
             <img class="icon" src="/icon/memory-solid.svg" alt="" />
             <span title="内存（总量|空闲|使用率）">
               {{ CoverToGB(v.meminfo.total) }} | {{ CoverToGB(v.meminfo.available) }} |
-              {{ v.meminfo.usedpercent }}%
+              {{ v.meminfo.usedpercent.toFixed(1) }}%
             </span>
           </div>
           <div class="process" :style="{ '--p': v.meminfo.usedpercent + '%' }"></div>
