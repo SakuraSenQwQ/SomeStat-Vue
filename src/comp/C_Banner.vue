@@ -83,5 +83,6 @@ const alive = computed(() => {
   background-image: var(--img);
   background-size: cover;
   background-position: centers;
+  background-color: #a8fdc2;
 }
 </style>
