@@ -39,7 +39,7 @@ const alive = computed(() => {
   color: #84ff74;
 }
 .total {
-  color: #3459ff;
+  color: #ffba5f;
 }
 .banner {
   display: flex;
