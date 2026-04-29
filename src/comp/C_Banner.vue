@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useCounterStore } from '@/stores/counter'
 import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 const store = storeToRefs(useCounterStore())
 
 const ServerList = store.ServerList
@@ -13,11 +13,14 @@ const alive = computed(() => {
       count++
     }
   }
-  document.documentElement.style.setProperty(
+
+  return count
+})
+onMounted(()=>{
+    document.documentElement.style.setProperty(
     '--img',
     'url(' + store.Configs.value.BackGroundImage + ')',
   )
-  return count
 })
 </script>
 
@@ -60,7 +63,7 @@ const alive = computed(() => {
   z-index: 999;
   height: 100%;
   border-radius: 12px;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(2px);
   box-shadow: #222121 0 0 4px;
   h1 {
     color: #000;
@@ -80,9 +83,17 @@ const alive = computed(() => {
   position: absolute;
   left: 0;
   top: 0;
-  background-image: var(--img);
+
   background-size: cover;
-  background-position: centers;
-  background-color: #a8fdc2;
+  background-position: top;
+
+}
+@media (width <= 570px) {
+  .bannercover{
+    background-image: var(--img);
+  }
+  .displays{
+    backdrop-filter: blur(1px);
+  }
 }
 </style>

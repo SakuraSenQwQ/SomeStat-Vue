@@ -14,7 +14,7 @@ body {
   padding: 0;
   background-image: var(--img);
   background-size: cover;
-  background-position: center;
+  background-position: top;
 }
 
 .page {
