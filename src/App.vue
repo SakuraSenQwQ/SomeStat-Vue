@@ -12,6 +12,9 @@
 body {
   margin: 0;
   padding: 0;
+  background-image: var(--img);
+  background-size: cover;
+  background-position: center;
 }
 
 .page {

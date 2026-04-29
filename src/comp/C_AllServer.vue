@@ -90,10 +90,14 @@ const lastPushTime = computed(() => {
       return '未收到信息'
     }
     const now = new Date()
-    const s = Math.floor(Number(now) / 1000 - time)
+    const s = Math.floor(Math.floor(Number(now) / 1000) - time)
 
     if (s < 60) {
-      return s + '秒前'
+      if (s < 0) {
+        return 0 + '秒前'
+      } else {
+        return s + '秒前'
+      }
     }
     if (s >= 60 && s < 3600) {
       return Math.floor(s / 60) + '分钟前'
@@ -168,7 +172,7 @@ onMounted(() => {
         </div>
         <div class="other">
           <div class="disk" title="磁盘（总大小|空闲|使用率）">
-            <img src="/icon/save-solid.svg" alt="" />
+            <img class="icon" src="/icon/save-solid.svg" alt="" />
             <span>
               {{ CoverToGB(v.diskinfo.total) }} | {{ CoverToGB(v.diskinfo.free) }} |
               {{ v.diskinfo.usedpercent.toFixed(1) }}%</span
@@ -211,7 +215,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   img {
-    width: 1.2rem;
+    width: 1rem;
   }
 }
 span {
@@ -331,6 +335,6 @@ span {
   }
 }
 .icon {
-  height: 100%;
+  height: 80%;
 }
 </style>
