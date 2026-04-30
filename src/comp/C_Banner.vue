@@ -16,8 +16,8 @@ const alive = computed(() => {
 
   return count
 })
-onMounted(()=>{
-    document.documentElement.style.setProperty(
+onMounted(() => {
+  document.documentElement.style.setProperty(
     '--img',
     'url(' + store.Configs.value.BackGroundImage + ')',
   )
@@ -30,7 +30,7 @@ onMounted(()=>{
       <h1>Server Status</h1>
       <h2>
         <span class="green">{{ alive }} Online</span> /
-        <span class="total">{{ ServerList?.length }} Total</span>
+        <span class="total">{{ ServerList?.length ?? 0 }} Total</span>
       </h2>
     </div>
     <div class="bannercover"></div>
@@ -66,8 +66,8 @@ onMounted(()=>{
   backdrop-filter: blur(2px);
   box-shadow: #222121 0 0 4px;
   h1 {
-    color: #000;
-    text-shadow: #a1a1a1 0 0 2px;
+    color: #ff80ab;
+    text-shadow: #ffffff 0 0 1px;
   }
   h2 {
     color: #fff;
@@ -86,13 +86,12 @@ onMounted(()=>{
 
   background-size: cover;
   background-position: top;
-
 }
 @media (width <= 570px) {
-  .bannercover{
+  .bannercover {
     background-image: var(--img);
   }
-  .displays{
+  .displays {
     backdrop-filter: blur(1px);
   }
 }

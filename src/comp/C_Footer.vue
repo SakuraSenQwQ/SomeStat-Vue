@@ -13,9 +13,10 @@
 .footer {
   margin-top: auto;
   display: flex;
+  color: #fff;
   a {
     text-decoration: none;
-    color: #ff472e;
+    color: #6bfaff;
   }
 }
 </style>

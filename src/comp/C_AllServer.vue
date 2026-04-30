@@ -63,7 +63,7 @@ const CoverToMB = computed(() => {
 const CoverDay = computed(() => {
   return (s: number) => {
     if (s < 60) {
-      return s + 's'
+      return Math.floor(s) + 's'
     }
     if (s >= 60 && s < 3600) {
       return Math.floor(s / 60) + 'm'
@@ -222,8 +222,8 @@ span {
   font-size: 0.8rem;
 }
 .servers {
-  --alive: #9dff9d;
-  --dead: #fa8484;
+  --alive: #b6f8b6;
+  --dead: #ffa8a8;
 }
 .top {
   transition: 0.4s;
@@ -272,7 +272,7 @@ span {
   display: flex;
   align-items: center;
   width: 100%;
-  gap: 0.1rem;
+  gap: 0.2rem;
 }
 .process {
   border-radius: 12px;
@@ -301,6 +301,7 @@ span {
   width: 16rem;
   height: 9rem;
   border: #000 solid 1px;
+  box-shadow: #000 0 0 4px;
   padding: 0.5rem;
   transition: 0.5s;
   background-color: var(--bg);
